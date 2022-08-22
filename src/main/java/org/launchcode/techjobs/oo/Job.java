@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Job {
@@ -18,14 +19,15 @@ public class Job {
         nextId++;
     }
 
-    public Job(String name, Employer employer, Location location, PositionType posittionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
         this.location = location;
-        this.positionType = posittionType;
+        this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
 
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
@@ -52,8 +54,42 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString(){
+        String nullCondition = "Data not available";
+        String sName = name;
+        String sEmployer = employer.toString();
+        String sLocation = location.toString();
+        String sPositionType = positionType.toString();
+        String sCoreCompetency = coreCompetency.toString();
+
+        ArrayList<String> iterList = new ArrayList<>();
+        ArrayList<String> actualList = new ArrayList<>();
+        iterList.add(sName);
+        iterList.add(sEmployer);
+        iterList.add(sLocation);
+        iterList.add(sPositionType);
+        iterList.add(sCoreCompetency);
+
+        int num = 0;
+
+        for (String entry:iterList){
+            if (entry == null || entry.isEmpty()){
+                actualList.add(nullCondition);
+                num++;
+                if (num == iterList.size()) {
+                    return "OOPS! This job does not seem to exist.";
+                }
+            } else {
+                actualList.add(entry);
+            }
+        }
+
+        return "\nID:  " + getId() + "\nName:  " + actualList.get(0) + "\nEmployer:  " + actualList.get(1) + "\nLocation:  " + actualList.get(2)+ "\nPosition Type:  " + actualList.get(3)  +
+                "\nCore Competency:  " + actualList.get(4) + "\n";
+    }
     public String getName() {
-        return name;
+       return name;
     }
 
     public void setName(String name) {
