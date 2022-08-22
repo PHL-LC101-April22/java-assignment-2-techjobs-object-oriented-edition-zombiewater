@@ -57,6 +57,8 @@ public class JobTest {
         Job TestJob = new Job("On Call Staff",new Employer(), new Location(), new PositionType(), new CoreCompetency());
         assertTrue(TestJob.toString().startsWith("\n"));
         assertTrue(TestJob.toString().endsWith("\n"));
+        assertEquals(TestJob.toString().charAt(0),'\n');
+        assertEquals(TestJob.toString().charAt(TestJob.toString().length()-1),'\n');
     }
 
     @Test
