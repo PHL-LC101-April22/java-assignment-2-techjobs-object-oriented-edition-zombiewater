@@ -85,8 +85,8 @@ public class Job {
             }
         }
 
-        return "\nID:  " + getId() + "\nName:  " + actualList.get(0) + "\nEmployer:  " + actualList.get(1) + "\nLocation:  " + actualList.get(2)+ "\nPosition Type:  " + actualList.get(3)  +
-                "\nCore Competency:  " + actualList.get(4) + "\n";
+        return "\nID: " + getId() + "\nName: " + actualList.get(0) + "\nEmployer: " + actualList.get(1) + "\nLocation: " + actualList.get(2)+ "\nPosition Type: " + actualList.get(3)  +
+                "\nCore Competency: " + actualList.get(4) + "\n";
     }
     public String getName() {
        return name;

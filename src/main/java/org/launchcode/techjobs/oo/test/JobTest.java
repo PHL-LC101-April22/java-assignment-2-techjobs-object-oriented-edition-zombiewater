@@ -38,7 +38,7 @@ public class JobTest {
     }
 
     @Test
-    public void testJobForEquality(){
+    public void testJobsForEquality(){
         Job job1 = new Job();
         Job job2 = new Job();
         assertFalse(job1.equals(job2));
@@ -47,16 +47,16 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData(){
         Job TestJob = new Job("",new Employer("BestBuy"), new Location(), new PositionType(), new CoreCompetency());
-        String TestString = "\nID:  2\nName:  Data not available\nEmployer:  BestBuy\nLocation:  Data not available\nPosition Type:  Data not available\nCore Competency:  Data not available\n";
+        String TestString = "\nID: 4\nName: Data not available\nEmployer: BestBuy\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n";
         assertEquals(TestJob.toString(),TestString);
 
     }
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        Job TestJob = new Job("",new Employer("BestBuy"), new Location(), new PositionType(), new CoreCompetency());
-        String TestString = "\nID:  3\nName:  Data not available\nEmployer:  BestBuy\nLocation:  Data not available\nPosition Type:  Data not available\nCore Competency:  Data not available\n";
-        assertEquals(TestJob.toString(),TestString);
+        Job TestJob = new Job("On Call Staff",new Employer(), new Location(), new PositionType(), new CoreCompetency());
+        assertTrue(TestJob.toString().startsWith("\n"));
+        assertTrue(TestJob.toString().endsWith("\n"));
     }
 
     @Test
